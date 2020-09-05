@@ -12,5 +12,7 @@ namespace test_mvc_webapp.Models
         {
             
         }
+
+        public DbSet<PaymentDetail> PaymentDetails { get; set; }
     }
 }

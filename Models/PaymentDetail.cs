@@ -8,7 +8,7 @@ namespace test_mvc_webapp.Models
         [Key]
         public int PMId { get; set; }
         [Required]
-        [Column(TypeName = "mvarchar(100)")]
+        [Column(TypeName = "varchar(100)")]
         public string CardOwnerName { get; set; }
         
         [Required]
