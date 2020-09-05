@@ -8,6 +8,9 @@ namespace test_mvc_webapp.Models
 {
     public class PaymentDetailContext:DbContext
     {
-        
+        public PaymentDetailContext(DbContextOptions<PaymentDetailContext> options):base(options)
+        {
+            
+        }
     }
 }
