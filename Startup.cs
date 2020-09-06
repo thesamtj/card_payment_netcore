@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using test_mvc_webapp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace test_mvc_webapp
 {
@@ -24,6 +26,9 @@ namespace test_mvc_webapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<PaymentDetailContext>(options => 
+              options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
+            ); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
