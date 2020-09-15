@@ -29,7 +29,7 @@ namespace CardPaymentAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<PaymentDetailContext>(options =>
-            options.UseSqlServer()
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
         }
 
