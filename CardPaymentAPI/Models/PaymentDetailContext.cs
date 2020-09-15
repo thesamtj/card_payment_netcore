@@ -12,5 +12,7 @@ namespace CardPaymentAPI.Models
         {
 
         }
+
+        public DbSet<PaymentDetail> PaymentDetails { get; set; }
     }
 }
