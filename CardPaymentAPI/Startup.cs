@@ -39,6 +39,13 @@ namespace CardPaymentAPI
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection"))
             );
 
+            services.AddDbContext<AuthenticationContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"))
+            );
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<AuthenticationContext>();
+
             services.AddCors();
         }
 
