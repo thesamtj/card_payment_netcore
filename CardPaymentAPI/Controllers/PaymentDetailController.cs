@@ -27,7 +27,24 @@ namespace CardPaymentAPI.Controllers
             return _context.PaymentDetails;
         }
 
-        
+        // GET: api/PaymentDetail/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPaymentDetail([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+
+            if (paymentDetail == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(paymentDetail);
+        }
 
         // PUT: api/PaymentDetail/5
         [HttpPut("{id}")]
